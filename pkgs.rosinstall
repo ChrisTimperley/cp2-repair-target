@@ -1,4 +1,4 @@
-# generated using `rosinstall turtlebot --deps --distro kinetic` on 14th Feb. 2018
+# generated using `rosinstall_generator turtlebot_gazebo --deps --distro kinetic` on 14th Feb. 2018
 - git:
     local-name: actionlib
     uri: https://github.com/ros-gbp/actionlib-release.git
@@ -75,6 +75,14 @@
     local-name: common_msgs/stereo_msgs
     uri: https://github.com/ros-gbp/common_msgs-release.git
     version: release/kinetic/stereo_msgs/1.12.5-0
+- git:
+    local-name: common_msgs/trajectory_msgs
+    uri: https://github.com/ros-gbp/common_msgs-release.git
+    version: release/kinetic/trajectory_msgs/1.12.5-0
+- git:
+    local-name: common_msgs/visualization_msgs
+    uri: https://github.com/ros-gbp/common_msgs-release.git
+    version: release/kinetic/visualization_msgs/1.12.5-0
 - git:
     local-name: depthimage_to_laserscan
     uri: https://github.com/ros-gbp/depthimage_to_laserscan-release.git
@@ -196,6 +204,22 @@
     uri: https://github.com/ros-drivers-gbp/freenect_stack-release.git
     version: release/kinetic/freenect_launch/0.4.2-0
 - git:
+    local-name: gazebo_ros_pkgs/gazebo_dev
+    uri: https://github.com/ros-gbp/gazebo_ros_pkgs-release.git
+    version: release/kinetic/gazebo_dev/2.5.14-1
+- git:
+    local-name: gazebo_ros_pkgs/gazebo_msgs
+    uri: https://github.com/ros-gbp/gazebo_ros_pkgs-release.git
+    version: release/kinetic/gazebo_msgs/2.5.14-1
+- git:
+    local-name: gazebo_ros_pkgs/gazebo_plugins
+    uri: https://github.com/ros-gbp/gazebo_ros_pkgs-release.git
+    version: release/kinetic/gazebo_plugins/2.5.14-1
+- git:
+    local-name: gazebo_ros_pkgs/gazebo_ros
+    uri: https://github.com/ros-gbp/gazebo_ros_pkgs-release.git
+    version: release/kinetic/gazebo_ros/2.5.14-1
+- git:
     local-name: gencpp
     uri: https://github.com/ros-gbp/gencpp-release.git
     version: release/kinetic/gencpp/0.5.5-0
@@ -268,6 +292,10 @@
     uri: https://github.com/ros-gbp/image_common-release.git
     version: release/kinetic/image_transport/1.11.13-0
 - git:
+    local-name: image_common/polled_camera
+    uri: https://github.com/ros-gbp/image_common-release.git
+    version: release/kinetic/polled_camera/1.11.13-0
+- git:
     local-name: image_pipeline/depth_image_proc
     uri: https://github.com/ros-gbp/image_pipeline-release.git
     version: release/kinetic/depth_image_proc/1.12.22-0
@@ -275,10 +303,6 @@
     local-name: image_pipeline/image_proc
     uri: https://github.com/ros-gbp/image_pipeline-release.git
     version: release/kinetic/image_proc/1.12.22-0
-- git:
-    local-name: joystick_drivers/joy
-    uri: https://github.com/ros-gbp/joystick_drivers-release.git
-    version: release/kinetic/joy/1.11.0-0
 - git:
     local-name: kdl_parser/kdl_parser
     uri: https://github.com/ros-gbp/kdl_parser-release.git
@@ -332,9 +356,17 @@
     uri: https://github.com/yujinrobot-release/kobuki_core-release.git
     version: release/kinetic/kobuki_ftdi/0.7.8-1
 - git:
+    local-name: kobuki_desktop/kobuki_gazebo_plugins
+    uri: https://github.com/yujinrobot-release/kobuki_desktop-release.git
+    version: release/kinetic/kobuki_gazebo_plugins/0.5.7-0
+- git:
     local-name: kobuki_msgs
     uri: https://github.com/yujinrobot-release/kobuki_msgs-release.git
     version: release/kinetic/kobuki_msgs/0.7.0-0
+- git:
+    local-name: laser_geometry
+    uri: https://github.com/ros-gbp/laser_geometry-release.git
+    version: release/kinetic/laser_geometry/1.6.4-0
 - git:
     local-name: libfreenect
     uri: https://github.com/ros-drivers-gbp/libfreenect-ros-release.git
@@ -356,9 +388,61 @@
     uri: https://github.com/ros-gbp/message_runtime-release.git
     version: release/kinetic/message_runtime/0.4.12-0
 - git:
+    local-name: navigation/amcl
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/amcl/1.14.2-0
+- git:
+    local-name: navigation/base_local_planner
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/base_local_planner/1.14.2-0
+- git:
+    local-name: navigation/clear_costmap_recovery
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/clear_costmap_recovery/1.14.2-0
+- git:
+    local-name: navigation/costmap_2d
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/costmap_2d/1.14.2-0
+- git:
+    local-name: navigation/dwa_local_planner
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/dwa_local_planner/1.14.2-0
+- git:
+    local-name: navigation/map_server
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/map_server/1.14.2-0
+- git:
+    local-name: navigation/move_base
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/move_base/1.14.2-0
+- git:
+    local-name: navigation/nav_core
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/nav_core/1.14.2-0
+- git:
+    local-name: navigation/navfn
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/navfn/1.14.2-0
+- git:
     local-name: navigation/robot_pose_ekf
     uri: https://github.com/ros-gbp/navigation-release.git
     version: release/kinetic/robot_pose_ekf/1.14.2-0
+- git:
+    local-name: navigation/rotate_recovery
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/rotate_recovery/1.14.2-0
+- git:
+    local-name: navigation/voxel_grid
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/voxel_grid/1.14.2-0
+- git:
+    local-name: navigation_msgs/map_msgs
+    uri: https://github.com/ros-gbp/navigation_msgs-release.git
+    version: release/kinetic/map_msgs/1.13.0-0
+- git:
+    local-name: navigation_msgs/move_base_msgs
+    uri: https://github.com/ros-gbp/navigation_msgs-release.git
+    version: release/kinetic/move_base_msgs/1.13.0-0
 - git:
     local-name: nodelet_core/nodelet
     uri: https://github.com/ros-gbp/nodelet_core-release.git
@@ -379,6 +463,10 @@
     local-name: openni2_camera/openni2_launch
     uri: https://github.com/ros-gbp/openni2_camera-release.git
     version: release/kinetic/openni2_launch/0.3.0-0
+- git:
+    local-name: openslam_gmapping
+    uri: https://github.com/ros-gbp/openslam_gmapping-release.git
+    version: release/kinetic/openslam_gmapping/0.1.2-0
 - git:
     local-name: orocos_kinematics_dynamics/orocos_kdl
     uri: https://github.com/smits/orocos-kdl-release.git
@@ -628,6 +716,10 @@
     uri: https://github.com/ros-gbp/ros_tutorials-release.git
     version: release/kinetic/rospy_tutorials/0.7.1-0
 - git:
+    local-name: rosbag_migration_rule
+    uri: https://github.com/ros-gbp/rosbag_migration_rule-release.git
+    version: release/kinetic/rosbag_migration_rule/1.0.0-0
+- git:
     local-name: rosconsole_bridge
     uri: https://github.com/ros-gbp/rosconsole_bridge-release.git
     version: release/kinetic/rosconsole_bridge/0.5.1-0
@@ -656,6 +748,10 @@
     uri: https://github.com/ros-gbp/rospack-release.git
     version: release/kinetic/rospack/2.4.4-0
 - git:
+    local-name: slam_gmapping/gmapping
+    uri: https://github.com/ros-gbp/slam_gmapping-release.git
+    version: release/kinetic/gmapping/1.3.10-0
+- git:
     local-name: sophus
     uri: https://github.com/yujinrobot-release/sophus-release.git
     version: release/kinetic/sophus/0.9.1-0
@@ -667,10 +763,6 @@
     local-name: std_msgs
     uri: https://github.com/ros-gbp/std_msgs-release.git
     version: release/kinetic/std_msgs/0.5.11-0
-- git:
-    local-name: turtlebot/turtlebot
-    uri: https://github.com/turtlebot-release/turtlebot-release.git
-    version: release/kinetic/turtlebot/2.4.2-0
 - git:
     local-name: turtlebot/turtlebot_bringup
     uri: https://github.com/turtlebot-release/turtlebot-release.git
@@ -684,9 +776,9 @@
     uri: https://github.com/turtlebot-release/turtlebot-release.git
     version: release/kinetic/turtlebot_description/2.4.2-0
 - git:
-    local-name: turtlebot/turtlebot_teleop
-    uri: https://github.com/turtlebot-release/turtlebot-release.git
-    version: release/kinetic/turtlebot_teleop/2.4.2-0
+    local-name: turtlebot_apps/turtlebot_navigation
+    uri: https://github.com/turtlebot-release/turtlebot_apps-release.git
+    version: release/kinetic/turtlebot_navigation/2.3.7-0
 - git:
     local-name: turtlebot_create/create_description
     uri: https://github.com/turtlebot-release/turtlebot_create-release.git
@@ -699,6 +791,10 @@
     local-name: turtlebot_create/create_node
     uri: https://github.com/turtlebot-release/turtlebot_create-release.git
     version: release/kinetic/create_node/2.3.1-0
+- git:
+    local-name: turtlebot_simulator/turtlebot_gazebo
+    uri: https://github.com/turtlebot-release/turtlebot_simulator-release.git
+    version: release/kinetic/turtlebot_gazebo/2.2.3-0
 - git:
     local-name: unique_identifier/unique_id
     uri: https://github.com/ros-geographic-info/unique_identifier-release.git
