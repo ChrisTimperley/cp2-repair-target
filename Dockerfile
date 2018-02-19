@@ -35,7 +35,7 @@ RUN rosdep update \
  && sudo rm -rf /var/lib/apt/lists/*
 
 # fix: https://github.com/ros/geometry/issues/144
-RUN cd /ros_ws/src/ros_com/xmlrpcpp && \
+RUN cd /ros_ws/src/ros_comm/xmlrpcpp && \
     sed -i "s#INCLUDE_DIRS include#INCLUDE_DIRS include include/xmlrpcpp/g#" CMakeLists.txt
 
 # build the source code
