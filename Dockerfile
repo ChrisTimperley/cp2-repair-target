@@ -34,6 +34,10 @@ RUN rosdep update \
  && sudo apt-get clean \
  && sudo rm -rf /var/lib/apt/lists/*
 
+# fix: https://github.com/ros/geometry/issues/144
+RUN cd /ros_ws/src/ros_com/xmlrpcpp && \
+    sed -i "s#INCLUDE_DIRS include#INCLUDE_DIRS include include/xmlrpcpp/g#" CMakeLists.txt
+
 # build the source code
 # RUN sudo apt-get update && \
 #     sudo apt-get install -y python-catkin-tools
