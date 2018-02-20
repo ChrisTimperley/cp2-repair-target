@@ -34,13 +34,21 @@ RUN rosdep update \
  && sudo apt-get clean \
  && sudo rm -rf /var/lib/apt/lists/*
 
-# fix: https://github.com/ros/geometry/issues/144
-RUN cd /ros_ws/src/ros_comm/xmlrpcpp && \
-    sed -i "s#INCLUDE_DIRS include#INCLUDE_DIRS include include/xmlrpcpp/g#" CMakeLists.txt
+RUN sudo apt-get update && \
+    sudo apt-get install -y python-catkin-tools
 
-# build the source code
-# RUN sudo apt-get update && \
-#     sudo apt-get install -y python-catkin-tools
-# RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" \
-#  && mkdir logs \
-#  && catkin build
+# fix: https://github.com/ros/geometry/issues/144
+# fix: https://github.com/ros-drivers/freenect_stack/issues/36
+# fix BFL includes
+RUN cd /ros_ws/src/ros_comm/xmlrpcpp && \
+    sed -i "s#INCLUDE_DIRS include#INCLUDE_DIRS include include/xmlrpcpp#" CMakeLists.txt && \
+    cd /ros_ws/src/freenect_stack && \
+    find . -type f -exec sed -i "s#libfreenect/libfreenect.h#libfreenect.h#g" "{}" \; && \
+    find . -type f -exec sed -i "s#libfreenect/libfreenect_registration.h#libfreenect_registration.h#g" "{}" \; && \
+    cd /ros_ws/src/navigation && \
+    find . -type f -exec sed -i "s#<bfl/#<#g" {} \;
+
+# build
+RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
+    mkdir logs && \
+    catkin build
