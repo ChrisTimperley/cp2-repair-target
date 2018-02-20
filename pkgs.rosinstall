@@ -843,3 +843,11 @@
     local-name: zeroconf_msgs
     uri: https://github.com/yujinrobot-release/zeroconf_msgs-release.git
     version: release/kinetic/zeroconf_msgs/0.2.1-0
+- git:
+    local-name: cp-gazebo
+    uri: https://github.com/cmu-mars/cp-gazebo-p15.git
+    version: 91790ac9bce740abe98e2db266bd00b91c0f07d7
+- git:
+    local-name: cp-maps
+    uri: https://github.com/cmu-mars/cp-maps.git
+    version: p1.5
