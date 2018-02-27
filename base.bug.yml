@@ -1,0 +1,25 @@
+version: '1.0'
+
+bug: base
+dataset: mars
+languages:
+- cpp
+
+build:
+  type: docker
+  file: Dockerfile
+  tag: christimperley/mars:base
+
+compiler:
+  type: catkin
+  workspace: /ros_ws
+  time-limit: 120
+
+source-location: /ros_ws/src
+
+test-harness:
+  type: genprog
+  time-limit: 120
+  failing: 1
+  passing: 1
+  command: ./test.py __ID__
