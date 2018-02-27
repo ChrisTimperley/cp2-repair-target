@@ -58,8 +58,8 @@ ENTRYPOINT ["/ros_ws/entrypoint.sh"]
 CMD ["/bin/bash"]
 
 # fake xserver
-#RUN sudo apt-get update && \
-#    sudo apt-get install -y --no-install-recommends xserver-xorg-video-dummy
+RUN sudo apt-get update && \
+    sudo apt-get install -y --no-install-recommends xvfb
 
 ADD robotest.launch /ros_ws/src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch
 ADD runner.py /ros_ws/runner.py
