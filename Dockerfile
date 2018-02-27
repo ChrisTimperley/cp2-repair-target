@@ -52,3 +52,10 @@ RUN cd /ros_ws/src/ros_comm/xmlrpcpp && \
 RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
     mkdir logs && \
     catkin build
+
+# fake xserver
+#RUN sudo apt-get update && \
+#    sudo apt-get install -y --no-install-recommends xserver-xorg-video-dummy
+
+ADD robotest.launch /ros_ws/src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch
+ADD runner.py /ros_ws/runner.py
