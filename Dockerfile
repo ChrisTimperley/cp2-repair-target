@@ -53,6 +53,10 @@ RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
     mkdir logs && \
     catkin build
 
+ADD entrypoint.sh /ros_ws/entrypoint.sh
+ENTRYPOINT ["/ros_ws/entrypoint.sh"]
+CMD ["/bin/bash"]
+
 # fake xserver
 #RUN sudo apt-get update && \
 #    sudo apt-get install -y --no-install-recommends xserver-xorg-video-dummy
