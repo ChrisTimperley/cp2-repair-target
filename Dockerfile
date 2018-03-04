@@ -1,6 +1,7 @@
-FROM ros:kinetic
+FROM cmu-mars/gazebo
 
 # create docker user
+USER root
 ENV USER docker
 RUN apt-get update \
  && apt-get install -y --no-install-recommends sudo \
@@ -49,17 +50,16 @@ RUN cd /ros_ws/src/ros_comm/xmlrpcpp && \
     find . -type f -exec sed -i "s#<bfl/#<#g" {} \;
 
 # build
+RUN sudo apt-get install -y libignition-math2-dev
+RUN mkdir logs
 RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
-    mkdir logs && \
+    catkin build kobuki_gazebo_plugins
+RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
     catkin build
 
 ADD entrypoint.sh /ros_ws/entrypoint.sh
 ENTRYPOINT ["/ros_ws/entrypoint.sh"]
 CMD ["/bin/bash"]
-
-# fake xserver
-RUN sudo apt-get update && \
-    sudo apt-get install -y --no-install-recommends xvfb
 
 ADD robotest.launch /ros_ws/src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch
 ADD runner.py /ros_ws/runner.py
