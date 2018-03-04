@@ -35,8 +35,8 @@ RUN rosdep update \
 # fix: https://github.com/ros/geometry/issues/144
 # fix: https://github.com/ros-drivers/freenect_stack/issues/36
 # fix BFL includes
-# RUN cd "${ROS_WS}/src/ros_comm/xmlrpcpp" && \
-#     sed -i "s#INCLUDE_DIRS include#INCLUDE_DIRS include include/xmlrpcpp#" CMakeLists.txt
+RUN cd "${ROS_WS}/src/ros_comm/xmlrpcpp" && \
+    sed -i "s#INCLUDE_DIRS include#INCLUDE_DIRS include include/xmlrpcpp#" CMakeLists.txt
 # RUN cd "${ROS_WS}/src/freenect_stack" && \
 #     find . -type f -exec sed -i "s#libfreenect/libfreenect.h#libfreenect.h#g" "{}" \; && \
 #     find . -type f -exec sed -i "s#libfreenect/libfreenect_registration.h#libfreenect_registration.h#g" "{}" \;

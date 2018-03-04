@@ -607,94 +607,94 @@
 #     local-name: ros/rosunit
 #     uri: https://github.com/ros-gbp/ros-release.git
 #     version: release/kinetic/rosunit/1.13.6-0
-# - git:
-#     local-name: ros_comm/message_filters
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/message_filters/1.12.12-0
-# - git:
-#     local-name: ros_comm/rosbag
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/rosbag/1.12.12-0
-# - git:
-#     local-name: ros_comm/rosbag_storage
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/rosbag_storage/1.12.12-0
-# - git:
-#     local-name: ros_comm/rosconsole
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/rosconsole/1.12.12-0
-# - git:
-#     local-name: ros_comm/roscpp
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/roscpp/1.12.12-0
-# - git:
-#     local-name: ros_comm/rosgraph
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/rosgraph/1.12.12-0
-# - git:
-#     local-name: ros_comm/roslaunch
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/roslaunch/1.12.12-0
-# - git:
-#     local-name: ros_comm/roslz4
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/roslz4/1.12.12-0
-# - git:
-#     local-name: ros_comm/rosmaster
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/rosmaster/1.12.12-0
-# - git:
-#     local-name: ros_comm/rosmsg
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/rosmsg/1.12.12-0
-# - git:
-#     local-name: ros_comm/rosnode
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/rosnode/1.12.12-0
-# - git:
-#     local-name: ros_comm/rosout
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/rosout/1.12.12-0
-# - git:
-#     local-name: ros_comm/rosparam
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/rosparam/1.12.12-0
-# - git:
-#     local-name: ros_comm/rospy
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/rospy/1.12.12-0
-# - git:
-#     local-name: ros_comm/rosservice
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/rosservice/1.12.12-0
-# - git:
-#     local-name: ros_comm/rostest
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/rostest/1.12.12-0
-# - git:
-#     local-name: ros_comm/rostopic
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/rostopic/1.12.12-0
-# - git:
-#     local-name: ros_comm/roswtf
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/roswtf/1.12.12-0
-# - git:
-#     local-name: ros_comm/topic_tools
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/topic_tools/1.12.12-0
-# - git:
-#     local-name: ros_comm/xmlrpcpp
-#     uri: https://github.com/ros-gbp/ros_comm-release.git
-#     version: release/kinetic/xmlrpcpp/1.12.12-0
-# - git:
-#     local-name: ros_comm_msgs/rosgraph_msgs
-#     uri: https://github.com/ros-gbp/ros_comm_msgs-release.git
-#     version: release/kinetic/rosgraph_msgs/1.11.2-0
-# - git:
-#     local-name: ros_comm_msgs/std_srvs
-#     uri: https://github.com/ros-gbp/ros_comm_msgs-release.git
-#     version: release/kinetic/std_srvs/1.11.2-0
+- git:
+    local-name: ros_comm/message_filters
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/message_filters/1.12.12-0
+- git:
+    local-name: ros_comm/rosbag
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/rosbag/1.12.12-0
+- git:
+    local-name: ros_comm/rosbag_storage
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/rosbag_storage/1.12.12-0
+- git:
+    local-name: ros_comm/rosconsole
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/rosconsole/1.12.12-0
+- git:
+    local-name: ros_comm/roscpp
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/roscpp/1.12.12-0
+- git:
+    local-name: ros_comm/rosgraph
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/rosgraph/1.12.12-0
+- git:
+    local-name: ros_comm/roslaunch
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/roslaunch/1.12.12-0
+- git:
+    local-name: ros_comm/roslz4
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/roslz4/1.12.12-0
+- git:
+    local-name: ros_comm/rosmaster
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/rosmaster/1.12.12-0
+- git:
+    local-name: ros_comm/rosmsg
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/rosmsg/1.12.12-0
+- git:
+    local-name: ros_comm/rosnode
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/rosnode/1.12.12-0
+- git:
+    local-name: ros_comm/rosout
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/rosout/1.12.12-0
+- git:
+    local-name: ros_comm/rosparam
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/rosparam/1.12.12-0
+- git:
+    local-name: ros_comm/rospy
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/rospy/1.12.12-0
+- git:
+    local-name: ros_comm/rosservice
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/rosservice/1.12.12-0
+- git:
+    local-name: ros_comm/rostest
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/rostest/1.12.12-0
+- git:
+    local-name: ros_comm/rostopic
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/rostopic/1.12.12-0
+- git:
+    local-name: ros_comm/roswtf
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/roswtf/1.12.12-0
+- git:
+    local-name: ros_comm/topic_tools
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/topic_tools/1.12.12-0
+- git:
+    local-name: ros_comm/xmlrpcpp
+    uri: https://github.com/ros-gbp/ros_comm-release.git
+    version: release/kinetic/xmlrpcpp/1.12.12-0
+- git:
+    local-name: ros_comm_msgs/rosgraph_msgs
+    uri: https://github.com/ros-gbp/ros_comm_msgs-release.git
+    version: release/kinetic/rosgraph_msgs/1.11.2-0
+- git:
+    local-name: ros_comm_msgs/std_srvs
+    uri: https://github.com/ros-gbp/ros_comm_msgs-release.git
+    version: release/kinetic/std_srvs/1.11.2-0
 # - git:
 #     local-name: ros_tutorials/rospy_tutorials
 #     uri: https://github.com/ros-gbp/ros_tutorials-release.git
