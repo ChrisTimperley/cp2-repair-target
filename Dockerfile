@@ -37,9 +37,9 @@ RUN rosdep update \
 # fix BFL includes
 RUN cd "${ROS_WS}/src/ros_comm/xmlrpcpp" && \
     sed -i "s#INCLUDE_DIRS include#INCLUDE_DIRS include include/xmlrpcpp#" CMakeLists.txt
-# RUN cd "${ROS_WS}/src/freenect_stack" && \
-#     find . -type f -exec sed -i "s#libfreenect/libfreenect.h#libfreenect.h#g" "{}" \; && \
-#     find . -type f -exec sed -i "s#libfreenect/libfreenect_registration.h#libfreenect_registration.h#g" "{}" \;
+RUN cd "${ROS_WS}/src/freenect_stack" && \
+    find . -type f -exec sed -i "s#libfreenect/libfreenect.h#libfreenect.h#g" "{}" \; && \
+    find . -type f -exec sed -i "s#libfreenect/libfreenect_registration.h#libfreenect_registration.h#g" "{}" \;
 RUN cd "${ROS_WS}/src/navigation" && \
     find . -type f -exec sed -i "s#<bfl/#<#g" {} \;
 

@@ -195,14 +195,14 @@
 #     local-name: ecl_tools/ecl_license
 #     uri: https://github.com/yujinrobot-release/ecl_tools-release.git
 #     version: release/kinetic/ecl_license/0.61.6-0
-# - git:
-#     local-name: freenect_stack/freenect_camera
-#     uri: https://github.com/ros-drivers-gbp/freenect_stack-release.git
-#     version: release/kinetic/freenect_camera/0.4.2-0
-# - git:
-#     local-name: freenect_stack/freenect_launch
-#     uri: https://github.com/ros-drivers-gbp/freenect_stack-release.git
-#     version: release/kinetic/freenect_launch/0.4.2-0
+- git:
+    local-name: freenect_stack/freenect_camera
+    uri: https://github.com/ros-drivers-gbp/freenect_stack-release.git
+    version: release/kinetic/freenect_camera/0.4.2-0
+- git:
+    local-name: freenect_stack/freenect_launch
+    uri: https://github.com/ros-drivers-gbp/freenect_stack-release.git
+    version: release/kinetic/freenect_launch/0.4.2-0
 # - git:
 #     local-name: gencpp
 #     uri: https://github.com/ros-gbp/gencpp-release.git
@@ -351,10 +351,10 @@
 #     local-name: laser_geometry
 #     uri: https://github.com/ros-gbp/laser_geometry-release.git
 #     version: release/kinetic/laser_geometry/1.6.4-0
-# - git:
-#     local-name: libfreenect
-#     uri: https://github.com/ros-drivers-gbp/libfreenect-ros-release.git
-#     version: release/kinetic/libfreenect/0.5.1-0
+- git:
+    local-name: libfreenect
+    uri: https://github.com/ros-drivers-gbp/libfreenect-ros-release.git
+    version: release/kinetic/libfreenect/0.5.1-0
 # - git:
 #     local-name: librealsense
 #     uri: https://github.com/intel-ros/librealsense-release.git
