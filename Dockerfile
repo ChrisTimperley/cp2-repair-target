@@ -1,65 +1,55 @@
 FROM cmu-mars/gazebo
 
-# create docker user
-USER root
-ENV USER docker
-RUN apt-get update \
- && apt-get install -y --no-install-recommends sudo \
- && useradd -ms /bin/bash "${USER}" \
- && echo "${USER} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
- && adduser "${USER}" sudo \
- && apt-get clean \
- && mkdir -p "/home/${USER}" \
- && sudo chown -R "${USER}" "/home/${USER}" \
- && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-USER "${USER}"
-WORKDIR "/home/${USER}"
+ENV USER mars
+ENV ROS_WS /home/mars/catkin_ws
+WORKDIR ${ROS_WS}
+
+# trash the workspace
+RUN . /opt/ros/kinetic/setup.sh && \
+    catkin_make clean && \
+    rm -rf src/* build devel
 
 # install basic utilities
 RUN sudo apt-get update && \
-    sudo apt-get install -y vim wget curl
+    sudo apt-get install -y vim wget curl python-catkin-tools
 
 # use a ROS install file to create a workspace
-WORKDIR /ros_ws
-ADD pkgs.rosinstall /ros_ws/pkgs.rosinstall
+ADD pkgs.rosinstall pkgs.rosinstall
 RUN sudo chown -R ${USER} . && \
-    wstool init -j8 /ros_ws/src /ros_ws/pkgs.rosinstall
+    wstool init -j8 src pkgs.rosinstall
 
 # install system dependencies
 # --ignore-src (what does this do?)
 RUN rosdep update \
- && rosdep install -i -y -r --from-paths /ros_ws/src \
+ && rosdep install -i -y -r --from-paths src \
                         --ignore-src \
                         --skip-keys="python-rosdep python-catkin-pkg python-rospkg" \
                         --rosdistro="${ROS_DISTRO}" \
  && sudo apt-get clean \
  && sudo rm -rf /var/lib/apt/lists/*
 
-RUN sudo apt-get update && \
-    sudo apt-get install -y python-catkin-tools
-
 # fix: https://github.com/ros/geometry/issues/144
 # fix: https://github.com/ros-drivers/freenect_stack/issues/36
 # fix BFL includes
-RUN cd /ros_ws/src/ros_comm/xmlrpcpp && \
-    sed -i "s#INCLUDE_DIRS include#INCLUDE_DIRS include include/xmlrpcpp#" CMakeLists.txt && \
-    cd /ros_ws/src/freenect_stack && \
-    find . -type f -exec sed -i "s#libfreenect/libfreenect.h#libfreenect.h#g" "{}" \; && \
-    find . -type f -exec sed -i "s#libfreenect/libfreenect_registration.h#libfreenect_registration.h#g" "{}" \; && \
-    cd /ros_ws/src/navigation && \
-    find . -type f -exec sed -i "s#<bfl/#<#g" {} \;
+# RUN cd /ros_ws/src/ros_comm/xmlrpcpp && \
+#     sed -i "s#INCLUDE_DIRS include#INCLUDE_DIRS include include/xmlrpcpp#" CMakeLists.txt && \
+#     cd /ros_ws/src/freenect_stack && \
+#     find . -type f -exec sed -i "s#libfreenect/libfreenect.h#libfreenect.h#g" "{}" \; && \
+#     find . -type f -exec sed -i "s#libfreenect/libfreenect_registration.h#libfreenect_registration.h#g" "{}" \; && \
+#     cd /ros_ws/src/navigation && \
+#     find . -type f -exec sed -i "s#<bfl/#<#g" {} \;
 
 # build
 RUN sudo apt-get install -y libignition-math2-dev
 RUN mkdir logs
-RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
-    catkin build kobuki_gazebo_plugins
+# RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
+#     catkin build kobuki_gazebo_plugins
 RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
     catkin build
 
-ADD entrypoint.sh /ros_ws/entrypoint.sh
-ENTRYPOINT ["/ros_ws/entrypoint.sh"]
-CMD ["/bin/bash"]
+# ADD entrypoint.sh /ros_ws/entrypoint.sh
+# ENTRYPOINT ["/ros_ws/entrypoint.sh"]
+# CMD ["/bin/bash"]
 
 ADD robotest.launch /ros_ws/src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch
 ADD runner.py /ros_ws/runner.py
