@@ -779,54 +779,54 @@
     local-name: turtlebot_simulator/turtlebot_gazebo
     uri: https://github.com/turtlebot-release/turtlebot_simulator-release.git
     version: release/kinetic/turtlebot_gazebo/2.2.3-0
-# - git:
-#     local-name: unique_identifier/unique_id
-#     uri: https://github.com/ros-geographic-info/unique_identifier-release.git
-#     version: release/kinetic/unique_id/1.0.5-0
-# - git:
-#     local-name: unique_identifier/uuid_msgs
-#     uri: https://github.com/ros-geographic-info/unique_identifier-release.git
-#     version: release/kinetic/uuid_msgs/1.0.5-0
-# - git:
-#     local-name: urdf/urdf
-#     uri: https://github.com/ros-gbp/urdf-release.git
-#     version: release/kinetic/urdf/1.12.12-0
-# - git:
-#     local-name: urdf/urdf_parser_plugin
-#     uri: https://github.com/ros-gbp/urdf-release.git
-#     version: release/kinetic/urdf_parser_plugin/1.12.12-0
-# - git:
-#     local-name: vision_opencv/cv_bridge
-#     uri: https://github.com/ros-gbp/vision_opencv-release.git
-#     version: release/kinetic/cv_bridge/1.12.7-0
-# - git:
-#     local-name: vision_opencv/image_geometry
-#     uri: https://github.com/ros-gbp/vision_opencv-release.git
-#     version: release/kinetic/image_geometry/1.12.7-0
-# - git:
-#     local-name: xacro
-#     uri: https://github.com/ros-gbp/xacro-release.git
-#     version: release/kinetic/xacro/1.11.2-0
-# - git:
-#     local-name: yujin_ocs/yocs_cmd_vel_mux
-#     uri: https://github.com/yujinrobot-release/yujin_ocs-release.git
-#     version: release/kinetic/yocs_cmd_vel_mux/0.8.2-0
-# - git:
-#     local-name: yujin_ocs/yocs_controllers
-#     uri: https://github.com/yujinrobot-release/yujin_ocs-release.git
-#     version: release/kinetic/yocs_controllers/0.8.2-0
-# - git:
-#     local-name: yujin_ocs/yocs_velocity_smoother
-#     uri: https://github.com/yujinrobot-release/yujin_ocs-release.git
-#     version: release/kinetic/yocs_velocity_smoother/0.8.2-0
-# - git:
-#     local-name: zeroconf_avahi_suite/zeroconf_avahi
-#     uri: https://github.com/yujinrobot-release/zeroconf_avahi_suite-release.git
-#     version: release/kinetic/zeroconf_avahi/0.2.3-0
-# - git:
-#     local-name: zeroconf_msgs
-#     uri: https://github.com/yujinrobot-release/zeroconf_msgs-release.git
-#     version: release/kinetic/zeroconf_msgs/0.2.1-0
+- git:
+    local-name: unique_identifier/unique_id
+    uri: https://github.com/ros-geographic-info/unique_identifier-release.git
+    version: release/kinetic/unique_id/1.0.5-0
+- git:
+    local-name: unique_identifier/uuid_msgs
+    uri: https://github.com/ros-geographic-info/unique_identifier-release.git
+    version: release/kinetic/uuid_msgs/1.0.5-0
+- git:
+    local-name: urdf/urdf
+    uri: https://github.com/ros-gbp/urdf-release.git
+    version: release/kinetic/urdf/1.12.12-0
+- git:
+    local-name: urdf/urdf_parser_plugin
+    uri: https://github.com/ros-gbp/urdf-release.git
+    version: release/kinetic/urdf_parser_plugin/1.12.12-0
+- git:
+    local-name: vision_opencv/cv_bridge
+    uri: https://github.com/ros-gbp/vision_opencv-release.git
+    version: release/kinetic/cv_bridge/1.12.7-0
+- git:
+    local-name: vision_opencv/image_geometry
+    uri: https://github.com/ros-gbp/vision_opencv-release.git
+    version: release/kinetic/image_geometry/1.12.7-0
+- git:
+    local-name: xacro
+    uri: https://github.com/ros-gbp/xacro-release.git
+    version: release/kinetic/xacro/1.11.2-0
+- git:
+    local-name: yujin_ocs/yocs_cmd_vel_mux
+    uri: https://github.com/yujinrobot-release/yujin_ocs-release.git
+    version: release/kinetic/yocs_cmd_vel_mux/0.8.2-0
+- git:
+    local-name: yujin_ocs/yocs_controllers
+    uri: https://github.com/yujinrobot-release/yujin_ocs-release.git
+    version: release/kinetic/yocs_controllers/0.8.2-0
+- git:
+    local-name: yujin_ocs/yocs_velocity_smoother
+    uri: https://github.com/yujinrobot-release/yujin_ocs-release.git
+    version: release/kinetic/yocs_velocity_smoother/0.8.2-0
+- git:
+    local-name: zeroconf_avahi_suite/zeroconf_avahi
+    uri: https://github.com/yujinrobot-release/zeroconf_avahi_suite-release.git
+    version: release/kinetic/zeroconf_avahi/0.2.3-0
+- git:
+    local-name: zeroconf_msgs
+    uri: https://github.com/yujinrobot-release/zeroconf_msgs-release.git
+    version: release/kinetic/zeroconf_msgs/0.2.1-0
 - git:
     local-name: cp-gazebo
     uri: https://github.com/cmu-mars/cp-gazebo-p15.git
