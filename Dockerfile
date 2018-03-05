@@ -53,5 +53,5 @@ RUN mkdir logs
 RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
     catkin build
 
-ADD robotest.launch /ros_ws/src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch
-ADD runner.py /ros_ws/runner.py
+ADD robotest.launch src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch
+ADD runner.py runner.py

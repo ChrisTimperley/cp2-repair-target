@@ -1,7 +1,4 @@
-#!/usr/bin/python2.7
-#
-# Based on code by Miguel Velez:
-# https://github.com/miguelvelezmj25/turtlebot-monitoring-infrastructure/blob/develop/src/cp1_gazebo/instructions/localization/map_navigation.py
+#!/usr/bin/python
 #
 # Provided we trust the bump sensors, we can subscribe to /mobile_base/events/bumper
 # to be informed of any bumps. For now, let's go ahead and trust this (then work
@@ -38,9 +35,11 @@ from actionlib_msgs.msg import GoalStatus
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from geometry_msgs.msg import Point, Quaternion
 
+
 # The name of the model for the robot within Gazebo
 # TODO: allow command line customisation (so we can use this with other robots)
 ROBOT_MODEL_NAME = "mobile_base"
+
 
 # Used to construct a temporary launch file to pass along launch-time
 # parameters to ROSLaunchParent (since there isn't a native way to supply
@@ -73,7 +72,8 @@ class EphemeralLaunchFile(object):
         # write the modified XML to a temporary file
         # n.b. Python will take care of destroying the temporary file during
         # garbage collection
-        self.handle = NamedTemporaryFile(suffix='.launch')
+        self.handle = open('temp.launch', 'w')
+        # self.handle = NamedTemporaryFile(suffix='.launch')
         tree.write(self.path())
 
     def path(self):
@@ -244,8 +244,7 @@ if __name__ == "__main__":
 
     # build the mission
     # TODO: parameterise
-    configuration = "/ros_ws/src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch"
-    # mission = Mission(60, target, configuration, {'gui': 'false'})
+    configuration = "/home/mars/catkin_ws/src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch"
     mission = Mission(60, target, configuration, {})
 
     # execute!
