@@ -1,9 +1,0 @@
-https://answers.ros.org/question/201948/tf_old_data-ignoring-data-from-the-past-for-frame-odom/
-
-we just need to add:
-<arg name="/use_sim_time" value="true" />
-
-
-install numpy
-
-https://github.com/ros-simulation/gazebo_ros_pkgs/issues/536
