@@ -12,14 +12,14 @@ build:
 
 compiler:
   type: catkin
-  workspace: /ros_ws
+  workspace: /home/mars/catkin_ws
   time-limit: 120
 
-source-location: /ros_ws/src
+source-location: /home/mars/catkin_ws
 
 test-harness:
-  type: genprog
+  type: simple
   time-limit: 120
-  failing: 1
-  passing: 1
-  command: ./test.py __ID__
+  command: /home/mars/catkin_ws/test.py __ID__
+  tests:
+    - one

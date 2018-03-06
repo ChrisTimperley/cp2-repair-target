@@ -55,3 +55,4 @@ RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
 
 ADD robotest.launch src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch
 ADD runner.py runner.py
+ADD test.py test.py
