@@ -19,8 +19,8 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
-#    entry_points = {
-#        'console_scripts': [ 'darjeelingd = darjeeling.server:main' ]
-#    },
+    entry_points = {
+        'console_scripts': [ 'orchestrator = orchestrator.server:main' ]
+    }
 #    test_suite = 'tests'
 )
