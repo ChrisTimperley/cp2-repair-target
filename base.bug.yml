@@ -20,6 +20,7 @@ source-location: /home/mars/catkin_ws
 test-harness:
   type: simple
   time-limit: 120
-  command: /home/mars/catkin_ws/test.py __ID__
+  context: /home/mars/catkin_ws
+  command: ./test.py __ID__
   tests:
     - one
