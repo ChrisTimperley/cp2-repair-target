@@ -10,3 +10,4 @@ Dockerfile
 *.pyc
 *.swp
 *.swo
+.gitignore
