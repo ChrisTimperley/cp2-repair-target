@@ -1,0 +1,12 @@
+api-specification.yml
+lib
+lib64
+bin
+include
+share
+pyvenv.cfg
+Dockerfile
+*.tmp
+*.pyc
+*.swp
+*.swo
