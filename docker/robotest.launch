@@ -11,6 +11,8 @@
   <arg name="initial_pose_x" default="0.0" />
   <arg name="initial_pose_y" default="0.0" />
   <arg name="initial_pose_a" default="0.0" />
+  <arg name="ground_truth_x" default="-40.0" />
+  <arg name="ground_truth_y" default="26.5" />
   <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find cp_gazebo)/robot_description/cp1-kinetic/urdf/kobuki_hexagons_kinect.urdf.xacro'" />
 
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
@@ -33,7 +35,7 @@
 
   <param name="robot_description" command="$(arg urdf_file)" />
   <node name="spawn_turtlebot_model" pkg="gazebo_ros" type="spawn_model"
-        args="-x -40 -y 26.5 -unpause -urdf -param robot_description -model mobile_base"/>
+        args="-x $(ground_truth_x) -y $(ground_truth_y) -unpause -urdf -param robot_description -model mobile_base" />
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
     <param name="publish_frequency" type="double" value="30.0" />
