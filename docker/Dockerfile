@@ -54,5 +54,7 @@ RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
     catkin build
 
 ADD robotest.launch src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch
+ADD robotest.launch robotest.launch
+ADD launch.py launch.py
 ADD runner.py runner.py
 ADD test.py test.py

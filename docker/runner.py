@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #
 # Provided we trust the bump sensors, we can subscribe to /mobile_base/events/bumper
 # to be informed of any bumps. For now, let's go ahead and trust this (then work
@@ -25,8 +25,6 @@ import math
 import subprocess
 import roslaunch
 
-import xml.etree.ElementTree as ET
-
 from tempfile import NamedTemporaryFile
 from kobuki_msgs.msg import BumperEvent
 from gazebo_msgs.msg import ModelStates
@@ -35,49 +33,13 @@ from actionlib_msgs.msg import GoalStatus
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from geometry_msgs.msg import Point, Quaternion
 
+from launch import EphemeralLaunchFile
+
 
 # The name of the model for the robot within Gazebo
 # TODO: allow command line customisation (so we can use this with other robots)
 ROBOT_MODEL_NAME = "mobile_base"
 
-
-# Used to construct a temporary launch file to pass along launch-time
-# parameters to ROSLaunchParent (since there isn't a native way to supply
-# parameters).
-class EphemeralLaunchFile(object):
-
-    def __init__(self, base_file, parameters):
-        # load the contents of the base file
-        tree = ET.ElementTree()
-        tree.parse(base_file)
-        root = tree.getroot()
-
-        # find the corresponding argument for each parameter
-        new_parameters = []
-        for (param, value) in parameters.items():
-            found = False
-
-            # doesn't look at child arguments --- considered unnecessary
-            for arg in root.find("arg[@name='{}']".format(param)):
-                arg.attrib.pop('default')
-                arg.set('value', value)
-                found = True
-
-            # if we didn't find the tag for this argument, add a new one
-            if not found:
-                arg = ET.SubElement(root, 'arg')
-                arg.set('name', param)
-                arg.set('value', value)
-
-        # write the modified XML to a temporary file
-        # n.b. Python will take care of destroying the temporary file during
-        # garbage collection
-        self.handle = open('temp.launch', 'w')
-        # self.handle = NamedTemporaryFile(suffix='.launch')
-        tree.write(self.path())
-
-    def path(self):
-        return self.handle.name
 
 # Used to describe an outcome to the mission
 class MissionOutcome(object):
@@ -121,11 +83,6 @@ def euclidean(a, b):
 # For now, the only mission involves moving the robot from the spawn-point to
 # a given location.
 class Mission(object):
-    # TODO: implement
-    @staticmethod
-    def from_json(jsn):
-        pass
-
     # Records any collisions registered via the bumper sensors
     def bumper_listener(self, event):
         if event.state == 1:
@@ -171,13 +128,13 @@ class Mission(object):
         launch = None
         try:
             # generate an ephemeral launch file to pass the parameters
-            ephemeral_launch = EphemeralLaunchFile( self.launch_file, \
-                                                    self.launch_parameters)
+            ephemeral_launch = EphemeralLaunchFile(self.launch_file, \
+                                                   self.launch_parameters)
 
             # launch ROS
             uuid = roslaunch.rlutil.get_or_generate_uuid(None, False)
             roslaunch.configure_logging(uuid)
-            launch_files = [ephemeral_launch.path()]
+            launch_files = [ephemeral_launch.path]
             launch = roslaunch.parent.ROSLaunchParent(uuid, launch_files, is_core=True)
             launch.start()
 
@@ -244,7 +201,8 @@ if __name__ == "__main__":
 
     # build the mission
     # TODO: parameterise
-    configuration = "/home/mars/catkin_ws/src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch"
+    configuration = os.path.join(os.path.dirname(__file__),
+                                 "robotest.launch")
     mission = Mission(60, target, configuration, {})
 
     # execute!
