@@ -35,7 +35,7 @@
 
   <param name="robot_description" command="$(arg urdf_file)" />
   <node name="spawn_turtlebot_model" pkg="gazebo_ros" type="spawn_model"
-        args="-x $(ground_truth_x) -y $(ground_truth_y) -unpause -urdf -param robot_description -model mobile_base" />
+        args="-x $(arg ground_truth_x) -y $(arg ground_truth_y) -unpause -urdf -param robot_description -model mobile_base" />
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
     <param name="publish_frequency" type="double" value="30.0" />
