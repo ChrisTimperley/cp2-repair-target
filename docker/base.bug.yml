@@ -1,26 +1,23 @@
 version: '1.0'
 
-bug: base
-dataset: mars
-languages:
-- cpp
+blueprints:
+  - type: docker
+    tag: cmu-mars/cp2:base
 
-build:
-  type: docker
-  file: Dockerfile
-  tag: christimperley/mars:base
-
-compiler:
-  type: catkin
-  workspace: /home/mars/catkin_ws
-  time-limit: 120
-
-source-location: /home/mars/catkin_ws
-
-test-harness:
-  type: simple
-  time-limit: 120
-  context: /home/mars/catkin_ws
-  command: ./test.py __ID__
-  tests:
-    - one
+bugs:
+  - name: mars:base
+    image: cmu-mars/cp2:base
+    dataset: mars
+    source-location: /home/mars/catkin_ws
+    languages:
+    - cpp
+    compiler:
+      type: catkin
+      workspace: /home/mars/catkin_ws
+      time-limit: 120
+    test-harness:
+      type: simple
+      time-limit: 60
+      command: ./test.py __ID__
+      tests:
+        - t1
