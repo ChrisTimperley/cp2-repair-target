@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import mission
 import sys
 
 from runner import Mission

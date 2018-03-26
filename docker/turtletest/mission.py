@@ -1,3 +1,4 @@
+from typing import Callable
 import datetime
 import subprocess
 import math
@@ -5,14 +6,16 @@ import sys
 import time
 import os
 
-import roslaunch
 import rospy
+import roslaunch
 import actionlib
 import actionlib_msgs.msg
 import gazebo_msgs.msg
 import move_base_msgs.msg
 import kobuki_msgs.msg
 import move_base_msgs.msg
+import geometry_msgs.msg
+import nav_msgs.msg
 
 import helper
 import outcome
@@ -60,7 +63,7 @@ class Mission(object):
         self.__world_file = world_file
         self.__base_launch_file = base_launch_file
         self.__map_position_initial = map_position_initial
-        self.__map_position_end = map_position_end
+        self.__expected_map_position_end = map_position_end
 
     @property
     def world_file(self) -> str:
@@ -148,18 +151,18 @@ class Mission(object):
                                                  launch_parameters)
         uuid = roslaunch.rlutil.get_or_generate_uuid(None, False)
         roslaunch.configure_logging(uuid)
-        launch = roslaunch.parent.ROSLaunchParent(uuid,
-                                                  [launch_file.path],
-                                                  is_core=True)
+        launcher = roslaunch.parent.ROSLaunchParent(uuid,
+                                                    [launch_file.path],
+                                                    is_core=True)
 
         try:
-            launch.start()
+            launcher.start()
 
             rospy.init_node('mission_controller')
             rospy.loginfo('Launched mission_controller node')
             rospy.Subscriber('/mobile_base/events/bumper',
                              kobuki_msgs.msg.BumperEvent,
-                             self.bumper_listener, callback_args=[self])
+                             collision_checker, callback_args=[self])
             client = actionlib.SimpleActionClient('move_base',
                                                   move_base_msgs.msg.MoveBaseAction)
 
@@ -203,4 +206,4 @@ class Mission(object):
             return outcome.GoalNotReached(time_elapsed, distance_to_goal)
 
         finally:
-            launch.shutdown()
+            launcher.shutdown()

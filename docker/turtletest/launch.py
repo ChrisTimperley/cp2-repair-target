@@ -1,3 +1,4 @@
+from typing import Optional, Dict
 import xml.etree.ElementTree as ET
 
 
@@ -8,7 +9,13 @@ class EphemeralLaunchFile(object):
     launch-time parameters to ROSLaunchParent since there is no means to supply
     parameters via the ROSLaunchParent API.
     """
-    def __init__(self, base_file, parameters):
+    def __init__(self,
+                 base_file: str,
+                 parameters: Optional[Dict[str, str]] = None
+                 ) -> None:
+        if parameters is None:
+            parameters = {}
+
         tree = ET.ElementTree()
         tree.parse(base_file)
         root = tree.getroot()

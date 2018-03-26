@@ -50,11 +50,18 @@ RUN sudo apt-get install -y libgazebo7-dev \
 RUN mkdir logs
 # RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
 #     catkin build kobuki_gazebo_plugins
-RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
-    catkin build
+RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" \
+ && catkin build
 
-ADD robotest.launch src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch
-ADD robotest.launch robotest.launch
-ADD launch.py launch.py
-ADD runner.py runner.py
-ADD test.py test.py
+RUN sudo apt-get update \
+ && sudo apt-get install -y python3-pip \
+ && pip3 install --upgrade pip
+RUN pip3 install --user \
+      pyyaml \
+      defusedxml \
+      catkin_pkg \
+      rospkg \
+      netifaces
+
+ADD turtletest turtletest
+RUN sudo chown -R $(whoami) turtletest
