@@ -1,7 +1,15 @@
 #!/bin/bash
 cd "${ROS_WS}"
-__argv=( "$@" )
-set -- ""
-. "/opt/ros/${ROS_DISTRO}/setup.bash"
-. "${ROS_WS}/devel/setup.bash"
-exec "${__argv}"
+# # copy $@
+# __args=("$@")
+#
+# # clear $@
+# CATKIN_SETUP_UTIL_ARGS=--extend
+# set --
+
+# WHY DOES THIS BREAK THINGS?
+. "/opt/ros/${ROS_DISTRO}/setup.sh"
+. "${ROS_WS}/devel/setup.sh"
+
+exec "$@"
+# exec "${__args[@]}"

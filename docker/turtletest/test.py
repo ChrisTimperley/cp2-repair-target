@@ -29,8 +29,10 @@ def build_mission(start_x: float,
                             'maps/playground.yaml')
     world_file = os.path.join(dir_turtlebot_gazebo,
                               'worlds/playground.world')
-    base_launch_file = os.path.join(os.path.dirname(__file__),
-                                    'robotest.launch')
+    base_launch_file = \
+        "/home/mars/catkin_ws/src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch"
+    # base_launch_file = os.path.join(os.path.dirname(__file__),
+    #                                 'robotest.launch')
 
     mission = Mission(map_position_initial=pos_start,
                       map_position_end=pos_target,
@@ -46,9 +48,6 @@ if __name__ == '__main__':
     if len(sys.argv) != 2:
         print("USAGE: ./test.py [test-id]")
         exit(1)
-
-    cfg = "/home/mars/catkin_ws/src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch"
-    params = {}
 
     test_id = sys.argv[1]
 
