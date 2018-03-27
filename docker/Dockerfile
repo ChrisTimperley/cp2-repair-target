@@ -63,11 +63,5 @@ RUN pip3 install --user \
       rospkg \
       netifaces
 
-# ADD entrypoint.sh /entrypoint.sh
-# ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/bin/bash"]
-
 ADD turtletest turtletest
 RUN sudo chown -R $(whoami) turtletest
-# /entrypoint.sh
-ADD turtletest/robotest.launch "/home/mars/catkin_ws/src/turtlebot_simulator/turtlebot_gazebo/launch/robotest.launch"
