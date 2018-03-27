@@ -3,6 +3,8 @@ version: '1.0'
 blueprints:
   - type: docker
     tag: cmu-mars/cp2:base
+    context: .
+    file: Dockerfile
 
 bugs:
   - name: mars:base
@@ -18,6 +20,8 @@ bugs:
     test-harness:
       type: simple
       time-limit: 60
-      command: ./test.py __ID__
+      context: /home/mars/catkin_ws/turtletest
+      command: python3 ./test.py __ID__
       tests:
         - t1
+        - t2

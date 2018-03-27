@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /ros_ws
-source "/opt/ros/${ROS_DISTRO}/setup.bash"
-source "/ros_ws/devel/setup.bash"
+cd "${ROS_WS}"
+# . "/opt/ros/${ROS_DISTRO}/setup.bash"
+# . "${ROS_WS}/devel/setup.bash"
 exec "$@"

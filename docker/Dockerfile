@@ -63,5 +63,9 @@ RUN pip3 install --user \
       rospkg \
       netifaces
 
+ADD entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/bin/bash"]
+
 ADD turtletest turtletest
-RUN sudo chown -R $(whoami) turtletest
+RUN sudo chown -R $(whoami) turtletest /entrypoint.sh
