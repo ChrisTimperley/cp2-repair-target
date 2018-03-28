@@ -1,0 +1,16 @@
+--- yujin_ocs/yocs_cmd_vel_mux/src/cmd_vel_mux_nodelet.cpp
++++ yujin_ocs/yocs_cmd_vel_mux/src/cmd_vel_mux_nodelet.cpp
+@@ -41,11 +41,11 @@ void CmdVelMuxNodelet::cmdVelCallback(const geometry_msgs::Twist::ConstPtr& msg,
+ 
+   // Give permit to publish to this source if it's the only active or is
+   // already allowed or has higher priority that the currently allowed
+-  if ((cmd_vel_subs.allowed == VACANT) ||
+-      (cmd_vel_subs.allowed == idx)    ||
++  if ((cmd_vel_subs.allowed == VACANT) &&
++      (cmd_vel_subs.allowed == idx)    &&
+       (cmd_vel_subs[idx]->priority > cmd_vel_subs[cmd_vel_subs.allowed]->priority))
+   {
+-    if (cmd_vel_subs.allowed != idx)
++    if (cmd_vel_subs.allowed == idx)
+     {
+       cmd_vel_subs.allowed = idx;
