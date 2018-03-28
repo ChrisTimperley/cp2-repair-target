@@ -38,7 +38,7 @@ def build_mission(start_x: float,
                       map_to_world=map_to_world,
                       map_file=map_file,
                       world_file=world_file,
-                      time_limit=60)
+                      time_limit=90)
     return mission
 
 
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     tests = {
         't1': build_mission(0.0, 0.0, 2.0, 1.0),
         't2': build_mission(0.0, 0.0, 3.0, -1.0),
-        't3': build_mission(0.0, 0.0, 0.0, -2.0)
+        't3': build_mission(0.0, 0.0, 0.0, -1.0)
     }
 
     if test_id not in tests:
