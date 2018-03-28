@@ -11,6 +11,8 @@ bugs:
     image: cmu-mars/cp2:base
     dataset: mars
     source-location: /home/mars/catkin_ws
+    coverage:
+      files-to-instrument: []
     languages:
     - cpp
     compiler:
